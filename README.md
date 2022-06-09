@@ -14,6 +14,10 @@ To build this app, we’re going to use the following technologies:
 
 ## Screenshots
 
+![developer porfolio home](/public/images/developer-portfolio-home.png)
+
+![developer porfolio blog](/public/images/developer-portfolio-blog.png)
+
 ## Getting started
 
 ### Environment Variables
