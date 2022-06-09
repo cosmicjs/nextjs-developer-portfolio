@@ -1,0 +1,150 @@
+/* Import the fonts from the local NPM package 'fontsource'. You can copy the import statements to use whichever font types you need. */
+@import '@fontsource/public-sans/300.css';
+@import '@fontsource/public-sans/400.css';
+@import '@fontsource/public-sans/400-italic.css';
+@import '@fontsource/public-sans/600.css';
+@import '@fontsource/public-sans/700.css';
+@import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Theme Classes for light and dark mode */
+
+.light {
+  --color-fore-primary: hsla(240, 6%, 10%);
+  --color-fore-secondary: hsla(240, 4%, 16%);
+  --color-fore-subtle: hsla(218, 17%, 35%);
+
+  --color-back-primary: hsla(240, 5%, 96%);
+  --color-back-secondary: hsla(240, 6%, 93%);
+  --color-back-subtle: hsla(210, 38%, 92%);
+
+  --color-accent: hsla(221, 100%, 63%);
+  --color-second-accent: hsla(243, 78%, 68%);
+  --color-back-accent: hsla(217, 100%, 81%);
+}
+
+.dark {
+  --color-fore-primary: hsla(214, 32%, 91%);
+  --color-fore-secondary: hsla(214, 32%, 91%);
+  --color-fore-subtle: hsla(214, 20%, 69%);
+
+  --color-back-primary: hsla(228, 10%, 11%);
+  --color-back-secondary: hsla(221, 39%, 8%);
+  --color-back-subtle: hsla(221, 39%, 16%);
+
+  --color-accent: hsla(201, 100%, 63%);
+  --color-second-accent: hsla(243, 78%, 68%);
+  --color-back-accent: hsla(172, 67%, 70%);
+}
+
+/* End Theme Classes */
+
+/* Custom Classes */
+
+.nav--item {
+  position: relative;
+}
+.nav--item::after,
+.nav--item:focus::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(
+    200deg,
+    var(--color-accent),
+    var(--color-second-accent)
+  );
+  border-radius: 50px;
+  bottom: -1.5px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+
+.nav--item:hover:after,
+.nav--item:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.filter--active {
+  position: relative;
+  z-index: -1;
+}
+
+.filter--active::after,
+.filter--active:focus::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(
+    200deg,
+    var(--color-accent),
+    var(--color-second-accent)
+  );
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+
+.minimal--border {
+  position: relative;
+}
+.minimal--border::before {
+  content: '';
+  position: absolute;
+  background: var(--color-accent);
+  top: 50%;
+  left: 0;
+  width: 6px;
+  height: 2px;
+  margin: 0 -0.5rem;
+  border-radius: 5px;
+}
+.minimal--border::after {
+  content: '';
+  position: absolute;
+  background: var(--color-accent);
+  top: 50%;
+  right: 0;
+  width: 6px;
+  height: 2px;
+  margin: 0 -0.5rem;
+  border-radius: 5px;
+}
+
+/* End Custom Classes */
+
+@layer base {
+  ::-moz-selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-back-primary);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-back-primary);
+    color: var(--color-fore-primary);
+    @apply overflow-x-hidden antialiased;
+  }
+
+  .full-width-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+}
