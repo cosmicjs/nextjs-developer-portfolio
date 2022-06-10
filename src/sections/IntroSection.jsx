@@ -11,7 +11,7 @@ const IntroSection = () => {
           Developer Portfolio
         </h1>
         <h2 className="mb-4 max-w-lg">
-          This portfolio template is powered by <strong>Cosmicjs</strong>.
+          This portfolio template is powered by <strong>Cosmic</strong>.
         </h2>
         <div className="flex items-center">
           <a

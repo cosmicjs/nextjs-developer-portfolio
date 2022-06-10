@@ -10,7 +10,7 @@ const AboutMeSection = () => {
       </h3>
       <p className="text-fore-primary mb-8 ">
         I love working with jamstack and headless architecture. I am currently
-        building with TypeScript, React, Nextjs, Tailwind, and Nodejs.
+        building with TypeScript, Cosmic, Next.js, Tailwind CSS, and Nodejs.
       </p>
       <p className="text-fore-primary mb-8">
         Coming from a background in audio engineering and music production, I

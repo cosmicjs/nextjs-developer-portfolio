@@ -8,7 +8,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>About | Developer Portfolio</title>
+        *<title>About | Developer Portfolio</title>
         <meta name="description" content="About this developer" />
         <meta property="og:image" content="/images/stefan_kudla_ogImage.jpg" />
       </Head>
@@ -38,7 +38,7 @@ const About = () => {
             <p>Get in touch to create something awesome together!</p>
             <div className="flex items-center md:mt-6">
               <a
-                href="/Stefan_Kudla_Resume.pdf"
+                href="/your_resume_here.pdf"
                 className="flex items-center mr-4 text-fore-primary border-2 border-accent w-fit px-4 py-1 rounded cursor-pointer hover:text-accent transition-colors"
               >
                 <span className="mr-2">

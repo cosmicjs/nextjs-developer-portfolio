@@ -8,7 +8,7 @@ const Logo = () => {
         className="flex items-center border-white group focus-visible:outline-accent"
       >
         <div className="overflow-hidden transition ease-in-out rounded-full  hover:opacity-60">
-          <span className="text-sm">cosmicDev</span>
+          <span className="text-sm">cosmicjs</span>
           <span className="text-sm text-accent">.com</span>
         </div>
       </a>
