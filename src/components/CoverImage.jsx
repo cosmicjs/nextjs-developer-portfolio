@@ -2,15 +2,17 @@ import Image from 'next/image'
 
 const CoverImage = ({ title, url }) => {
   return (
-    <div className="relative">
+    <div>
       <Image
         src={url}
-        width="100%"
-        height="75%"
         alt={`Cover image for ${title}`}
+        width={1200}
+        height={700}
+        quality={60}
         layout="responsive"
         objectFit="contain"
         priority
+        sizes="50vw"
       />
     </div>
   )
