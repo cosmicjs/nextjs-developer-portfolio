@@ -3,6 +3,7 @@ import { PaperIcon } from '@/configs/icons'
 import SocialIcons from '@/components/SocialIcons'
 import Image from 'next/image'
 import Head from 'next/head'
+import avatar from '../../public/images/avatar_4.png'
 
 const About = () => {
   return (
@@ -17,7 +18,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row-reverse border-b pb-12">
           <div className="flex-1 relative">
             <Image
-              src="/images/portrait_4.png"
+              src={avatar}
               alt="Stefan Kudla"
               width={400}
               height={400}
