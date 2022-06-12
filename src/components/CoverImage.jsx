@@ -11,6 +11,8 @@ const CoverImage = ({ title, url }) => {
         layout="responsive"
         objectFit="contain"
         priority
+        placeholder="blur"
+        blurDataURL={`${url}?w=10`}
       />
     </div>
   )
