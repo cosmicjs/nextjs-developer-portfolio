@@ -14,9 +14,9 @@ const Index = ({ allPosts, allWorks }) => {
         <title>Cosmic | Developer Portfolio</title>
         <meta
           name="description"
-          content="Stefan Kudla is a software developer from Las Vegas, Nevada."
+          content="Developer Portfolio Template built with Next.js and Cosmic"
         />
-        <meta property="og:image" content="/images/stefan_kudla_ogImage.jpg" />
+        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
       </Head>
       <IntroSection />
       <AboutMeSection />

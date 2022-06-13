@@ -16,7 +16,7 @@ const Works = ({ allPosts, allWorkCategories }) => {
       <Head>
         <title>Works | Developer Portfolio</title>
         <meta name="description" content="The works of this developer" />
-        <meta property="og:image" content="/images/stefan_kudla_ogImage.jpg" />
+        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
       </Head>
       <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
         Works

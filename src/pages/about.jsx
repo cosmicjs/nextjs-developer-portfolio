@@ -11,7 +11,7 @@ const About = () => {
       <Head>
         *<title>About | Developer Portfolio</title>
         <meta name="description" content="About this developer" />
-        <meta property="og:image" content="/images/stefan_kudla_ogImage.jpg" />
+        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
       </Head>
       <section>
         <h1 className="text-2xl md:text-3xl mb-12 font-bold">About Me</h1>
@@ -24,6 +24,7 @@ const About = () => {
               layout="responsive"
               className="rounded-md"
               placeholder="blur"
+              priority
             />
           </div>
           <div className="flex-1 mt-12 md:mt-0 flex flex-col justify-start gap-y-8 pr-20">
