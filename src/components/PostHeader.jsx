@@ -17,6 +17,7 @@ const PostHeader = ({ post }) => {
             height={42}
             alt="Stefan Kudla"
             className="rounded-full"
+            placeholder="blur"
           />
           <span className="ml-2 text-sm">
             Stefan Kudla |{' '}

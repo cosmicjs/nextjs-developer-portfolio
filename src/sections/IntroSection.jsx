@@ -2,6 +2,7 @@ import SocialIcons from '@/components/SocialIcons'
 import React from 'react'
 import { PaperIcon } from '@/configs/icons'
 import Image from 'next/image'
+import avatar from '../../public/images/avatar_4.png'
 
 const IntroSection = () => {
   return (
@@ -27,13 +28,15 @@ const IntroSection = () => {
           <SocialIcons />
         </div>
       </div>
-      <div className="w-[80px] sm:w-[186px] relative mb-6 sm:mb-0">
+      <div className="w-[80px] sm:w-[186px] relative mb-6 sm:mb-0 rounded-full">
         <Image
+          src={avatar}
           alt="Stefan Kudla"
           height={186}
           width={186}
-          src="/images/avatar_4.png"
+          quality={60}
           className="rounded-full"
+          placeholder="blur"
         />
       </div>
     </section>
