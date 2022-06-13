@@ -11,6 +11,7 @@ const CoverImage = ({ title, url }) => {
         objectFit="cover"
         placeholder="blur"
         blurDataURL={`${url}?auto=format,compress&q=1&blur=500&w=2`}
+        priority
       />
     </div>
   )
