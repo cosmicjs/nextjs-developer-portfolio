@@ -17,6 +17,10 @@ const Index = ({ allPosts, allWorks }) => {
           content="Developer Portfolio Template built with Next.js and Cosmic"
         />
         <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+        />
       </Head>
       <IntroSection />
       <AboutMeSection />
