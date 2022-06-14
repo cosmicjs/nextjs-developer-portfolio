@@ -26,8 +26,21 @@ const Post = ({ post }) => {
         <>
           <Head>
             <title>{post.title}</title>
-            <meta name="description" content={post.metadata.excerpt} />
-            <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+            <meta property="og:title" content={post.title} />
+            <meta property="og:type" content="article" />
+            <meta
+              property="og:image"
+              content={post.metadata.cover_image.imgix_url}
+            />
+            <meta property="og:description" content={post.metadata.excerpt} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@CosmicJS" />
+            <meta name="twitter:title" content={post.title} />
+            <meta name="twitter:description" content={post.metadata.excerpt} />
+            <meta
+              name="twitter:image"
+              content={post.metadata.cover_image.imgix_url}
+            />
           </Head>
           <article className="border-b border-back-subtle py-8 mb-8">
             {post.status === 'draft' ? (

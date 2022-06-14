@@ -9,9 +9,19 @@ const About = () => {
   return (
     <>
       <Head>
-        *<title>About | Developer Portfolio</title>
-        <meta name="description" content="About this developer" />
+        <title>About | Developer Portfolio</title>
+        <meta property="og:title" content="About | Developer Portfolio" />
         <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="About this developer" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CosmicJS" />
+        <meta name="twitter:title" content="About | Developer Portfolio" />
+        <meta name="twitter:description" content="About this developer" />
+        <meta
+          name="twitter:image"
+          content="https://imgix.cosmicjs.com/7832da80-eb5c-11ec-bb77-f7704be6fe97-CosmicOGImage.png"
+        />
       </Head>
       <section>
         <h1 className="text-2xl md:text-3xl mb-12 font-bold">About Me</h1>

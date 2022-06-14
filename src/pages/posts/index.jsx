@@ -14,11 +14,24 @@ const Posts = ({ allPosts, allPostCategories }) => {
     <>
       <Head>
         <title>Posts | Developer Portfolio</title>
+        <meta property="og:title" content="Posts | Developer Portfolio" />
+        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+        <meta property="og:type" content="website" />
         <meta
-          name="description"
+          property="og:description"
           content="Blog posts written by this developer"
         />
-        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CosmicJS" />
+        <meta name="twitter:title" content="Posts | Developer Portfolio" />
+        <meta
+          name="twitter:description"
+          content="Blog posts written by this developer"
+        />
+        <meta
+          name="twitter:image"
+          content="https://imgix.cosmicjs.com/7832da80-eb5c-11ec-bb77-f7704be6fe97-CosmicOGImage.png"
+        />
       </Head>
       <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
         Posts
