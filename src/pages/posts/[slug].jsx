@@ -26,11 +26,8 @@ const Post = ({ post }) => {
         <>
           <Head>
             <title>{post.title}</title>
-            <meta
-              property="og:image"
-              content={post.metadata.cover_image.imgix_url}
-            />
             <meta name="description" content={post.metadata.excerpt} />
+            <meta property="og:image" content="/images/Cosmic_OGImage.png" />
           </Head>
           <article className="border-b border-back-subtle py-8 mb-8">
             {post.status === 'draft' ? (
