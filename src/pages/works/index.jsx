@@ -15,8 +15,21 @@ const Works = ({ allPosts, allWorkCategories }) => {
     <>
       <Head>
         <title>Works | Developer Portfolio</title>
-        <meta name="description" content="The works of this developer" />
-        <meta property="og:image" content="/images/stefan_kudla_ogImage.jpg" />
+        <meta property="og:title" content="Works | Developer Portfolio" />
+        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="The works of this developer" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@CosmicJS" />
+        <meta name="twitter:title" content="Works | Developer Portfolio" />
+        <meta
+          name="twitter:description"
+          content="The works of this developer"
+        />
+        <meta
+          name="twitter:image"
+          content="https://imgix.cosmicjs.com/7832da80-eb5c-11ec-bb77-f7704be6fe97-CosmicOGImage.png"
+        />
       </Head>
       <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
         Works

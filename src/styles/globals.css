@@ -4,7 +4,6 @@
 @import '@fontsource/public-sans/400-italic.css';
 @import '@fontsource/public-sans/600.css';
 @import '@fontsource/public-sans/700.css';
-@import url('https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css');
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
