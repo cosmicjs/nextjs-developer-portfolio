@@ -10,10 +10,12 @@ const Header = () => {
         The source code for this portfolio is{' '}
         <a
           href="https://github.com/cosmicjs/nextjs-developer-portfolio"
+          target="_parent"
           className="underline hover:text-accent transition-colors"
         >
           available on GitHub
         </a>
+        .
       </div>
       <header className="md:pt-4 container max-w-screen-lg m-auto md:px-12 lg:px-20">
         <nav
