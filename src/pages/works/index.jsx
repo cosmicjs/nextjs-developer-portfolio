@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import Layout from '@/components/Layout'
-import { getAllPosts, getAllWorkCategories } from '@/lib/cosmic'
+import { getAllPosts, getAllCategories } from '@/lib/cosmic'
 import PostList from '@/components/PostList'
 import Head from 'next/head'
 
@@ -71,7 +70,7 @@ const Works = ({ allPosts, allWorkCategories }) => {
 
 export async function getStaticProps({ preview }) {
   const allPosts = (await getAllPosts(preview, 'works')) || []
-  const allWorkCategories = (await getAllWorkCategories()) || []
+  const allWorkCategories = (await getAllCategories('work-categories')) || []
   return {
     props: { allPosts, allWorkCategories },
   }
