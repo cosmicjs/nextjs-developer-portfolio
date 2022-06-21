@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getAllPosts, getAllPostCategories } from '@/lib/cosmic'
+import { getAllPosts, getAllCategories } from '@/lib/cosmic'
 import PostList from '@/components/PostList'
 import Head from 'next/head'
 
@@ -73,7 +73,7 @@ const Posts = ({ allPosts, allPostCategories }) => {
 
 export async function getStaticProps({ preview }) {
   const allPosts = (await getAllPosts(preview, 'posts')) || []
-  const allPostCategories = (await getAllPostCategories()) || []
+  const allPostCategories = (await getAllCategories('post-categories')) || []
   return {
     props: { allPosts, allPostCategories },
     revalidate: 60,
