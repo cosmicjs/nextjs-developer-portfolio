@@ -1,4 +1,3 @@
-import Meta from '@/components/Meta'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => {
@@ -10,7 +9,6 @@ const Document = () => {
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
       </Head>
-      <Meta />
       <body>
         <Main />
         <NextScript />
