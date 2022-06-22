@@ -5,32 +5,15 @@ import ToolboxSection from '@/sections/ToolboxSection'
 import WorksSection from '@/sections/WorksSection'
 import PostsSection from '@/sections/PostsSection'
 import ContactSection from '@/sections/ContactSection'
-import Head from 'next/head'
+import { PageMeta } from '@/components/Meta'
 
 const Index = ({ allPosts, allWorks }) => {
   return (
     <>
-      <Head>
-        <title>Cosmic | Developer Portfolio</title>
-        <meta property="og:title" content="Cosmic | Developer Portfolio" />
-        <meta property="og:image" content="/images/Cosmic_OGImage.png" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:description"
-          content="Developer Portfolio Template built with Next.js and Cosmic"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@CosmicJS" />
-        <meta name="twitter:title" content="Cosmic | Developer Portfolio" />
-        <meta
-          name="twitter:description"
-          content="Developer Portfolio Template built with Next.js and Cosmic"
-        />
-        <meta
-          name="twitter:image"
-          content="https://imgix.cosmicjs.com/7832da80-eb5c-11ec-bb77-f7704be6fe97-CosmicOGImage.png"
-        />
-      </Head>
+      <PageMeta
+        title="Cosmic | Developer Portfolio"
+        description="Developer Portfolio Template built with Next.js and Cosmic"
+      />
       <IntroSection />
       <AboutMeSection />
       <ToolboxSection />
