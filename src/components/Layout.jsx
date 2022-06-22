@@ -1,5 +1,5 @@
 import Footer from './Footer'
-import Meta from './Meta'
+import { Meta } from './Meta'
 import Header from './Header'
 
 const Layout = ({ children }) => {
