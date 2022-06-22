@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-const Meta = () => {
+export const Meta = () => {
   return (
     <Head>
       <link
@@ -34,4 +34,46 @@ const Meta = () => {
     </Head>
   )
 }
-export default Meta
+
+export const PageMeta = ({ title, description }) => {
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content="/images/Cosmic_OGImage.png" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@CosmicJS" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta
+        name="twitter:image"
+        content="https://cdn.cosmicjs.com/a0aa3180-a0a0-11e8-8dd8-9f9cde09837c-39b7c450-3d9b-11e8-9dd8-6123bc325337-COSMICJS.jpg"
+      />
+    </Head>
+  )
+}
+
+export const PostMeta = ({ title, description, slug, page, imageUrl }) => {
+  return (
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
+      <meta
+        property="og:url"
+        content={`https://nextjs-developer-portfolio-cms.vercel.app/${page}/${slug}`}
+      />
+      <meta property="og:type" content="article" />
+      <meta property="og:image" content={imageUrl} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={imageUrl} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@CosmicJS" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={imageUrl} />
+    </Head>
+  )
+}
