@@ -13,7 +13,7 @@ const PostList = ({ allPosts, postType, home }) => {
             className={
               home
                 ? 'py-5'
-                : 'flex flex-col bg-white dark:bg-gray-800 rounded p-8 shadow-sm'
+                : 'flex flex-col bg-white dark:bg-gray-800 rounded p-8 shadow-sm relative'
             }
             key={post.title}
           >
@@ -27,7 +27,12 @@ const PostList = ({ allPosts, postType, home }) => {
               >
                 <div className="max-w-lg">
                   <h3 className="text-xl font-bold mb-1 group-hover:text-accent transition-colors">
-                    {post.title}
+                    {post.title}{' '}
+                    {post.status === 'draft' && home && (
+                      <span className="text-fore-subtle ml-2">
+                        &#40;Draft&#41;
+                      </span>
+                    )}
                   </h3>
                   <p className="text-fore-subtle mb-3 lg:mb-0 lg:pr-6">
                     {post.metadata.excerpt}
@@ -44,6 +49,11 @@ const PostList = ({ allPosts, postType, home }) => {
                     <span className="group hidden group-hover:block ml-2">
                       <ForwardArrowIcon />
                     </span>
+                    {post.status === 'draft' && (
+                      <span className="absolute right-1 top-1 bg-back-subtle px-3 py-1 rounded text-accent">
+                        Draft
+                      </span>
+                    )}
                   </p>
                 )}
               </a>
