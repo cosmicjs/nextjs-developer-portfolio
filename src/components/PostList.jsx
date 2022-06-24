@@ -13,7 +13,7 @@ const PostList = ({ allPosts, postType, home }) => {
             className={
               home
                 ? 'py-5'
-                : 'flex flex-col bg-white dark:bg-gray-800 rounded p-8 shadow-sm relative'
+                : 'flex flex-col bg-white dark:bg-gray-800 rounded shadow-sm hover:shadow-md transition-all relative'
             }
             key={post.title}
           >
@@ -22,7 +22,7 @@ const PostList = ({ allPosts, postType, home }) => {
                 className={
                   home
                     ? 'group flex flex-col lg:flex-row lg:items-center lg:justify-between px-8 py-5 -my-5 -mx-7 hover:bg-back-subtle transition-colors border-b-2'
-                    : 'group flex flex-col justify-center gap-y-6'
+                    : 'group flex flex-col justify-start gap-y-6 p-8 h-full'
                 }
               >
                 <div className="max-w-lg">
