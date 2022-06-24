@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { getAllPosts, getAllCategories } from '@/lib/cosmic'
 import PostList from '@/components/PostList'
-import Head from 'next/head'
 import { PageMeta } from '@/components/Meta'
+import Layout from '@/components/Layout'
 
-const Works = ({ allPosts, allWorkCategories }) => {
+const Works = ({ allPosts, allWorkCategories, preview }) => {
   const [filterCategory, setFilterCategory] = useState('All')
 
   const filteredPosts = allPosts.filter(
@@ -17,49 +17,51 @@ const Works = ({ allPosts, allWorkCategories }) => {
         title="Works | Developer Portfolio"
         description="The works of this developer"
       />
-      <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
-        Works
-      </h1>
-      <ul className="flex gap-x-4 my-4">
-        <li
-          className={
-            'All' === filterCategory
-              ? 'cursor-pointer font-bold filter--active transition'
-              : 'cursor-pointer text-fore-subtle transition'
-          }
-          onClick={() => setFilterCategory('All')}
-          key={'All'}
-        >
-          All
-        </li>
-        {allWorkCategories.map(category => (
+      <Layout preview={preview}>
+        <h1 className="text-2xl md:text-3xl text-fore-primary font-bold">
+          Works
+        </h1>
+        <ul className="flex gap-x-4 my-4">
           <li
             className={
-              category.title === filterCategory
+              'All' === filterCategory
                 ? 'cursor-pointer font-bold filter--active transition'
-                : 'cursor-pointer text-fore-subtle transition hover:text-accent'
+                : 'cursor-pointer text-fore-subtle transition'
             }
-            onClick={() => setFilterCategory(category.title)}
-            key={category.title}
+            onClick={() => setFilterCategory('All')}
+            key={'All'}
           >
-            {category.title}
+            All
           </li>
-        ))}
-      </ul>
-      <PostList
-        allPosts={filterCategory === 'All' ? allPosts : filteredPosts}
-        postType="works"
-        home={false}
-      />
+          {allWorkCategories.map(category => (
+            <li
+              className={
+                category.title === filterCategory
+                  ? 'cursor-pointer font-bold filter--active transition'
+                  : 'cursor-pointer text-fore-subtle transition hover:text-accent'
+              }
+              onClick={() => setFilterCategory(category.title)}
+              key={category.title}
+            >
+              {category.title}
+            </li>
+          ))}
+        </ul>
+        <PostList
+          allPosts={filterCategory === 'All' ? allPosts : filteredPosts}
+          postType="works"
+          home={false}
+        />
+      </Layout>
     </>
   )
 }
 
-export async function getStaticProps({ preview }) {
+export async function getStaticProps({ preview = null }) {
   const allPosts = (await getAllPosts(preview, 'works')) || []
   const allWorkCategories = (await getAllCategories('work-categories')) || []
   return {
-    props: { allPosts, allWorkCategories },
+    props: { allPosts, allWorkCategories, preview },
   }
 }
 export default Works
