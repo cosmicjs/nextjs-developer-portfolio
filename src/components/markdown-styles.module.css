@@ -28,7 +28,3 @@
 .markdown ol li {
   @apply list-decimal list-inside mb-2 bg-back-subtle p-2 rounded text-[16px] md:text-[18px] font-semibold;
 }
-
-.markdown img {
-  @apply max-w-[xl] mx-auto my-12;
-}
