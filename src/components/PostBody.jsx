@@ -1,12 +1,40 @@
 import markdownStyles from './markdown-styles.module.css'
+import ReactMarkdown from 'react-markdown'
+import Image from 'next/image'
+
+const components = {
+  a: a => {
+    return (
+      <a href={a.href} rel="noopener noreferrer" target="_blank">
+        {a.children}
+      </a>
+    )
+  },
+  img: img => {
+    return (
+      <Image
+        src={img.src}
+        alt={img.alt}
+        width={400}
+        height={300}
+        quality={50}
+        layout="responsive"
+        objectFit="contain"
+        objectPosition="center"
+      />
+    )
+  },
+}
 
 const PostBody = ({ content }) => {
   return (
     <div className="max-w-2xl mx-auto">
-      <div
+      <ReactMarkdown
         className={markdownStyles['markdown']}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+        components={components}
+      >
+        {content}
+      </ReactMarkdown>
     </div>
   )
 }
