@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
-import { getAllPosts, getPostAndMorePosts } from '@/lib/cosmic'
+import { getPostAndMorePosts, getAllPostsWithSlug } from '@/lib/cosmic'
 import PostTitle from '@/components/PostTitle'
 import AlertPreview from '@/components/AlertPreview'
 import PageNotFound from '../404'
@@ -62,7 +62,7 @@ export async function getStaticProps({ params, preview = null }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = (await getAllPosts()) || []
+  const allPosts = (await getAllPostsWithSlug()) || []
   return {
     paths: allPosts.map(post => `/posts/${post.slug}`),
     fallback: true,

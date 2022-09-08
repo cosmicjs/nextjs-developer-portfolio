@@ -45,6 +45,19 @@ export async function getAllPosts(preview, postType, postCount) {
   }
 }
 
+export async function getAllPostsWithSlug() {
+  try {
+    const data = await bucket.objects.find({
+      type: 'posts',
+      props: 'title,slug,metadata,created_at',
+    })
+    return data.objects
+  } catch (error) {
+    if (is404(error)) return
+    throw error
+  }
+}
+
 export async function getPostAndMorePosts(slug, preview) {
   try {
     const data = await bucket.objects
