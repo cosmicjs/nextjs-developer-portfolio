@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@fontsource/public-sans": "^4.5.8",
-    "cosmicjs": "^4.1.7",
+    "cosmicjs": "^4.2.10",
     "date-fns": "2.28.0",
     "next": "latest",
     "next-themes": "^0.1.1",
