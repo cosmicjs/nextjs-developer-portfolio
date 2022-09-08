@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '@/lib/cosmic'
+import { getPostAndMorePosts, getAllPostsWithSlug } from '@/lib/cosmic'
 import PostTitle from '@/components/PostTitle'
 import AlertPreview from '@/components/AlertPreview'
 import PageNotFound from '../404'
