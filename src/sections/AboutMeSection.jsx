@@ -15,9 +15,9 @@ const AboutMeSection = () => {
       <p className="text-fore-primary mb-8">
         Coming from a background in audio engineering and music production, I
         quickly found that writing code was a bit like putting the secret sauce
-        on a vocal mix; there's not necessarily a single way to do it, and the
-        person behind the keyboard has the power to put their style into a great
-        solution.
+        on a vocal mix; there&apos;s not necessarily a single way to do it, and
+        the person behind the keyboard has the power to put their style into a
+        great solution.
       </p>
       <p className="text-fore-primary mb-8">
         My favorite part about coding is the constant innovation of
@@ -25,13 +25,14 @@ const AboutMeSection = () => {
         experiencing a major breakthrough with headless architecture and
         jamstack, and want to be involved in any way I can.
       </p>
-      <Link href="/about">
-        <a className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit">
-          <span className="mr-1">
-            <ForwardArrowIcon />
-          </span>
-          Learn more
-        </a>
+      <Link
+        href="/about"
+        className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit"
+      >
+        <span className="mr-1">
+          <ForwardArrowIcon />
+        </span>
+        Learn more
       </Link>
     </section>
   )

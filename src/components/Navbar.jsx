@@ -51,8 +51,8 @@ const Navbar = () => {
                 key={route.path}
                 className="border-b border-b-slate-400 border-opacity-30 pb-2"
               >
-                <Link href={route.path}>
-                  <a className="text-fore-secondary">{route.label}</a>
+                <Link href={route.path} className="text-fore-secondary">
+                  {route.label}
                 </Link>
               </li>
             ))}
@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  )
+  );
 }
 
 export default Navbar
