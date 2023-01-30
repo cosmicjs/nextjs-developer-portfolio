@@ -1,7 +1,7 @@
 import SocialIcons from '@/components/SocialIcons'
 import React from 'react'
 import { PaperIcon } from '@/configs/icons'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import avatar from '../../public/images/avatar_4.png'
 
 const IntroSection = () => {
