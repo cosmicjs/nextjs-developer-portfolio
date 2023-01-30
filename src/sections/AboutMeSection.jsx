@@ -25,16 +25,16 @@ const AboutMeSection = () => {
         experiencing a major breakthrough with headless architecture and
         jamstack, and want to be involved in any way I can.
       </p>
-      <Link href="/about">
-        <a className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit">
-          <span className="mr-1">
-            <ForwardArrowIcon />
-          </span>
-          Learn more
-        </a>
+      <Link
+        href="/about"
+        className="flex items-center text-accent underline underline-offset-2 cursor-pointer hover:opacity-70 transition hover:translate-x-1 w-fit">
+
+        <span className="mr-1">
+          <ForwardArrowIcon />
+        </span>Learn more
       </Link>
     </section>
-  )
+  );
 }
 
 export default AboutMeSection
