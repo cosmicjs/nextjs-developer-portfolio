@@ -1,32 +1,24 @@
-import SocialIcons from '@/components/SocialIcons'
-import React from 'react'
+import Socials from '@/components/Socials'
 import { PaperIcon } from '@/configs/icons'
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image'
 import avatar from '../../public/images/avatar_4.png'
 
-const IntroSection = () => {
+const IntroSection = ({ heading, subHeading, resumeLink, socials }) => {
   return (
     <section className="w-full flex flex-col-reverse md:flex-row justify-start">
       <div className="flex-1 flex flex-col gap-y-4">
         <h1 className="text-3xl md:text-5xl font-bold max-w-2xl text-fore-primary">
-          Developer Portfolio
+          {heading || 'Developer Portfolio'}
         </h1>
         <h2 className="mb-4 max-w-lg">
-          This portfolio template is powered by <strong>Cosmic</strong>.
+          {subHeading || 'This portfolio template is powered by Cosmic.'}
         </h2>
-        <div className="flex items-center">
-          <a
-            // upload your resume either on Cosmic or in the public file of this directory
-            href="/your_resume_here.pdf"
-            className="flex items-center mr-4 text-fore-primary border-2 border-accent w-fit px-4 py-1 rounded cursor-pointer hover:text-accent transition-colors"
-          >
-            <span className="mr-2">
-              <PaperIcon />
-            </span>
-            Resume
-          </a>
-          <SocialIcons />
-        </div>
+        <Socials
+          resume={socials?.metadata.resume.url}
+          email={socials?.metadata.email}
+          github={socials?.metadata.github}
+          linkedin={socials?.metadata.linkedin}
+        />
       </div>
       <div className="w-[80px] sm:w-[186px] relative mb-6 sm:mb-0 rounded-full">
         <Image
