@@ -101,3 +101,18 @@ export async function getAllCategories(category) {
     throw error
   }
 }
+
+export async function getPageBySlug(slug, props) {
+  try {
+    const data = await bucket.objects
+      .find({
+        type: slug,
+      })
+      .props(props)
+      .depth(1)
+    return data.objects[0]
+  } catch (error) {
+    if (is404(error)) return
+    throw error
+  }
+}

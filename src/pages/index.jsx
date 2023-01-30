@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/cosmic'
+import { getAllPosts, getPageBySlug } from '@/lib/cosmic'
 import IntroSection from '@/sections/IntroSection'
 import AboutMeSection from '@/sections/AboutMeSection'
 import ToolboxSection from '@/sections/ToolboxSection'
@@ -8,20 +8,28 @@ import ContactSection from '@/sections/ContactSection'
 import { PageMeta } from '@/components/Meta'
 import Layout from '@/components/Layout'
 
-const Index = ({ allPosts, allWorks, preview }) => {
+const Index = ({ allPosts, allWorks, pageData, preview }) => {
   return (
     <>
       <PageMeta
-        title="Cosmic | Developer Portfolio"
-        description="Developer Portfolio Template built with Next.js and Cosmic"
+        title={pageData.metadata.meta_title}
+        description={pageData.metadata.meta_title}
       />
       <Layout preview={preview}>
-        <IntroSection />
-        <AboutMeSection />
+        <IntroSection
+          heading={pageData.metadata.heading}
+          subHeading={pageData.metadata.sub_heading}
+          socials={pageData.metadata.socials}
+        />
+        <AboutMeSection bodyText={pageData.metadata.about} />
         <ToolboxSection />
         <WorksSection posts={allWorks} />
         <PostsSection posts={allPosts} />
-        <ContactSection />
+        <ContactSection
+          heading={pageData.metadata.contact_heading}
+          bodyText={pageData.metadata.contact_text}
+          email={pageData.metadata.socials.metadata.email}
+        />
       </Layout>
     </>
   )
@@ -32,8 +40,13 @@ const Index = ({ allPosts, allWorks, preview }) => {
 export async function getStaticProps({ preview = null }) {
   const allPosts = (await getAllPosts(preview, 'posts', 3)) || []
   const allWorks = (await getAllPosts(preview, 'works', 3)) || []
+  const pageData = await getPageBySlug(
+    'home-page',
+    'metadata.heading,metadata.sub_heading,metadata.socials,metadata.meta_title,metadata.meta_description,metadata.about,metadata.contact_heading,metadata.contact_text'
+  )
   return {
-    props: { allPosts, allWorks, preview },
+    props: { allPosts, allWorks, pageData, preview },
+    revalidate: 60,
   }
 }
 export default Index
