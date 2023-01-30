@@ -1,6 +1,6 @@
 import markdownStyles from './markdown-styles.module.css'
 import ReactMarkdown from 'react-markdown'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 
 const components = {
   a: a => {

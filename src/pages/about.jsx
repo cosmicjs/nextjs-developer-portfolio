@@ -1,7 +1,7 @@
 import React from 'react'
 import { PaperIcon } from '@/configs/icons'
 import SocialIcons from '@/components/SocialIcons'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import avatar from '../../public/images/avatar_4.png'
 import { PageMeta } from '@/components/Meta'
 import Layout from '@/components/Layout'

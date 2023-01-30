@@ -2,7 +2,7 @@ import Date from './Date'
 import CoverImage from './CoverImage'
 import PostTitle from './PostTitle'
 import { ExternalLinkIcon } from '@/configs/icons'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import avatar from '../../public/images/avatar_4.png'
 
 const PostHeader = ({ post }) => {
