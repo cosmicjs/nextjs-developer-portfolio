@@ -59,7 +59,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 <p>Use the following button to deploy to <a href="https://vercel.com/" rel="noopener noreferrer" target="_blank">Vercel</a>. You will need to add API accesss keys as environment variables. Find these in <em>Bucket Settings &gt; API Access</em>.</p>
 <p>
-<a href="https://vercel.com/new/clone?env=COSMIC_BUCKET_SLUG%2CCOSMIC_READ_KEY%2CCOSMIC_PREVIEW_SECRET&repository-url=https%3A%2F%2Fgithub.com%2Fcosmicjs%2Fnextjs-developer-portfolio" rel="noopener noreferrer" target="_blank"><img src="https://cdn.cosmicjs.com/d3f0d5e0-c064-11ea-9a05-6f8a16b0b14c-deploy-to-vercel.svg" style="width: 100px;" class="fr-fic fr-dib fr-fil"></a>
+<a href="https://vercel.com/new/clone?env=COSMIC_BUCKET_SLUG%2CCOSMIC_READ_KEY%2CCOSMIC_PREVIEW_SECRET&repository-url=https%3A%2F%2Fgithub.com%2Fcosmicjs%2Fnextjs-developer-portfolio%2Ftree%2Fapi-v3" rel="noopener noreferrer" target="_blank"><img src="https://cdn.cosmicjs.com/d3f0d5e0-c064-11ea-9a05-6f8a16b0b14c-deploy-to-vercel.svg" style="width: 100px;" class="fr-fic fr-dib fr-fil"></a>
 </p>
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
