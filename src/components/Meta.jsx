@@ -49,7 +49,7 @@ export const PageMeta = ({ title, description }) => {
       <meta name="twitter:description" content={description} />
       <meta
         name="twitter:image"
-        content="https://cdn.cosmicjs.com/a0aa3180-a0a0-11e8-8dd8-9f9cde09837c-39b7c450-3d9b-11e8-9dd8-6123bc325337-COSMICJS.jpg"
+        content="https://imgix.cosmicjs.com/c04f6a90-f00b-11ed-87b8-b7104fcd2121-blog-post-cover-cosmic.png?w=1200&h=627"
       />
     </Head>
   )
