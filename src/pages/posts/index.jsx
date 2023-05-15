@@ -7,7 +7,7 @@ import Layout from '@/components/Layout'
 const Posts = ({ allPosts, allPostCategories, preview }) => {
   const [filterCategory, setFilterCategory] = useState('All')
 
-  const filteredPosts = allPosts.filter(
+  const filteredPosts = allPosts?.filter(
     post => post.metadata.category.title === filterCategory
   )
 
