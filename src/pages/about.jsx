@@ -1,5 +1,4 @@
 import Image from 'next/legacy/image'
-import avatar from '../../public/images/avatar_4.png'
 import { PageMeta } from '@/components/Meta'
 import Layout from '@/components/Layout'
 import { getAllPosts, getPageBySlug } from '@/lib/cosmic'
@@ -22,7 +21,7 @@ const About = ({ pageData, preview }) => {
             {pageData.metadata.image && (
               <div className="relative max-w-[200px] md:max-w-none">
                 <Image
-                  src={pageData.metadata.image.imgix_url || avatar}
+                  src={pageData.metadata.image?.imgix_url}
                   alt="Developer avatar"
                   quality={60}
                   width={270}

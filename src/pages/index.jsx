@@ -17,7 +17,7 @@ const Index = ({ allPosts, allWorks, pageData, preview }) => {
       />
       <Layout preview={preview}>
         <IntroSection
-          avatar={pageData?.metadata.avatar.imgix_url}
+          avatar={pageData?.metadata.avatar?.imgix_url}
           heading={pageData?.metadata.heading}
           subHeading={pageData?.metadata.sub_heading}
           socials={pageData?.metadata.socials}
