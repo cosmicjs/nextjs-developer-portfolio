@@ -41,10 +41,7 @@ const Index = ({ allPosts, allWorks, pageData, preview }) => {
 export async function getStaticProps({ preview = null }) {
   const allPosts = (await getAllPosts(preview, 'posts', 3)) || []
   const allWorks = (await getAllPosts(preview, 'works', 3)) || []
-  const pageData = await getPageBySlug(
-    'home-page',
-    'metadata.avatar,metadata.heading,metadata.sub_heading,metadata.socials,metadata.meta_title,metadata.meta_description,metadata.about,metadata.contact_heading,metadata.contact_text'
-  )
+  const pageData = await getPageBySlug('home-page', 'metadata')
   return {
     props: { allPosts, allWorks, pageData, preview },
     revalidate: 60,
