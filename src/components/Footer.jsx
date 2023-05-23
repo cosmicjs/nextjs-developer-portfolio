@@ -1,4 +1,4 @@
-import { CosmicIcon } from '@/configs/icons'
+import { CosmicLogo } from '@/configs/icons'
 import MenuItems from './MenuItems'
 
 const Footer = () => {
@@ -20,7 +20,7 @@ const Footer = () => {
             rel="noreferrer"
             className="ml-2"
           >
-            <CosmicIcon />
+            <CosmicLogo />
           </a>
         </span>
       </div>

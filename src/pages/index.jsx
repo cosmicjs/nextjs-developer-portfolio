@@ -12,23 +12,24 @@ const Index = ({ allPosts, allWorks, pageData, preview }) => {
   return (
     <>
       <PageMeta
-        title={pageData.metadata.meta_title}
-        description={pageData.metadata.meta_title}
+        title={pageData?.metadata.meta_title}
+        description={pageData?.metadata.meta_title}
       />
       <Layout preview={preview}>
         <IntroSection
-          heading={pageData.metadata.heading}
-          subHeading={pageData.metadata.sub_heading}
-          socials={pageData.metadata.socials}
+          avatar={pageData?.metadata.avatar?.imgix_url}
+          heading={pageData?.metadata.heading}
+          subHeading={pageData?.metadata.sub_heading}
+          socials={pageData?.metadata.socials}
         />
-        <AboutMeSection bodyText={pageData.metadata.about} />
+        <AboutMeSection bodyText={pageData?.metadata.about} />
         <ToolboxSection />
         <WorksSection posts={allWorks} />
         <PostsSection posts={allPosts} />
         <ContactSection
-          heading={pageData.metadata.contact_heading}
-          bodyText={pageData.metadata.contact_text}
-          email={pageData.metadata.socials.metadata.email}
+          heading={pageData?.metadata.contact_heading}
+          bodyText={pageData?.metadata.contact_text}
+          email={pageData?.metadata.socials.metadata.email}
         />
       </Layout>
     </>
@@ -40,10 +41,7 @@ const Index = ({ allPosts, allWorks, pageData, preview }) => {
 export async function getStaticProps({ preview = null }) {
   const allPosts = (await getAllPosts(preview, 'posts', 3)) || []
   const allWorks = (await getAllPosts(preview, 'works', 3)) || []
-  const pageData = await getPageBySlug(
-    'home-page',
-    'metadata.heading,metadata.sub_heading,metadata.socials,metadata.meta_title,metadata.meta_description,metadata.about,metadata.contact_heading,metadata.contact_text'
-  )
+  const pageData = await getPageBySlug('home-page', 'metadata')
   return {
     props: { allPosts, allWorks, pageData, preview },
     revalidate: 60,
