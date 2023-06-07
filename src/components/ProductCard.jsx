@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const ProductCard = ({ productName, imgPath, description, productLink }) => {
   return (
@@ -8,7 +8,15 @@ const ProductCard = ({ productName, imgPath, description, productLink }) => {
     >
       <div className="w-[230px] h-[270px] border rounded-md">
         <div className="flex justify-center items-center bg-back-secondary h-3/5 rounded-t-md relative">
-          <Image src={imgPath} width={130} height={130} alt={productName} />
+          <Image
+            src={imgPath}
+            width={130}
+            height={130}
+            alt={productName}
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
         <div className="p-5 bg-white dark:bg-slate-900 rounded-b-md h-2/5">
           <h4 className="font-bold text-sm">{productName}</h4>
@@ -16,7 +24,7 @@ const ProductCard = ({ productName, imgPath, description, productLink }) => {
         </div>
       </div>
     </a>
-  )
+  );
 }
 
 export default ProductCard

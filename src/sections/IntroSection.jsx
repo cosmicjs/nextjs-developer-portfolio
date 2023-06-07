@@ -1,5 +1,5 @@
 import Socials from '@/components/Socials'
-import Image from 'next/legacy/image'
+import Image from "next/image"
 
 const IntroSection = ({ heading, subHeading, avatar, socials }) => {
   return (
@@ -26,10 +26,13 @@ const IntroSection = ({ heading, subHeading, avatar, socials }) => {
           width={186}
           quality={60}
           className="rounded-full"
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
     </section>
-  )
+  );
 }
 
 export default IntroSection
