@@ -25,7 +25,7 @@ const AboutPage = async () => {
         <h1 className="text-2xl md:text-3xl mb-12 font-bold">
           {pageData?.metadata.heading}
         </h1>
-        <div className="flex flex-col md:flex-row-reverse justify-between border-b pb-12">
+        <div className="flex flex-col md:flex-row-reverse justify-between">
           {pageData.metadata.image && (
             <div className="relative max-w-[200px] md:max-w-sm mb-12">
               <Image
