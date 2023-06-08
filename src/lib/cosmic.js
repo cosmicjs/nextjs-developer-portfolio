@@ -13,10 +13,10 @@ const is404 = error => /not found/i.test(error.message)
 export async function getPreviewPostBySlug(slug) {
   try {
     const data = await cosmic.objects
-      .find({
+      .findOne({
         slug: slug,
       })
-      .props('slug')
+      .props('title,slug,metadata')
       .status('any')
     return data.object
   } catch (error) {
@@ -82,8 +82,7 @@ export async function getPostAndMorePosts(slug, preview) {
       morePosts,
     }
   } catch (error) {
-    if (is404(error)) return
-    throw error
+    if (is404(error)) throw error
   }
 }
 

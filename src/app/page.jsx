@@ -6,17 +6,17 @@ import WorksSection from '@/sections/WorksSection'
 import PostsSection from '@/sections/PostsSection'
 import ContactSection from '@/sections/ContactSection'
 import { PageMeta } from '@/components/Meta'
+import { draftMode } from 'next/headers'
 
 async function getData() {
-  const preview = false
-  const allPosts = (await getAllPosts(preview, 'posts', 3)) || []
-  const allWorks = (await getAllPosts(preview, 'works', 3)) || []
+  const { isEnabled } = draftMode()
+  const allPosts = (await getAllPosts(isEnabled, 'posts', 3)) || []
+  const allWorks = (await getAllPosts(isEnabled, 'works', 3)) || []
   const pageData = await getPageBySlug('home-page', 'metadata')
   return {
     allPosts,
     allWorks,
     pageData,
-    preview,
   }
 }
 
@@ -25,7 +25,6 @@ const HomePage = async () => {
   const allPosts = data.allPosts
   const allWorks = data.allWorks
   const pageData = data.pageData
-  const preview = false
 
   return (
     <>

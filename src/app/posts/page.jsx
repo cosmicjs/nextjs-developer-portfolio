@@ -1,15 +1,15 @@
 import { getAllPosts, getAllCategories } from '@/lib/cosmic'
 import { PageMeta } from '@/components/Meta'
 import FilteredPosts from '@/components/FilteredPosts'
+import { draftMode } from 'next/headers'
 
 async function getData() {
-  const preview = false
-  const allPosts = (await getAllPosts(preview, 'posts')) || []
+  const { isEnabled } = draftMode()
+  const allPosts = (await getAllPosts(isEnabled, 'posts')) || []
   const allPostCategories = (await getAllCategories('post-categories')) || []
   return {
     allPosts,
     allPostCategories,
-    preview,
   }
 }
 

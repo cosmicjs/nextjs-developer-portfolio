@@ -8,6 +8,7 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url)
   const secret = searchParams.get('secret')
   const slug = searchParams.get('slug')
+  const path = searchParams.get('path')
 
   // Check the secret and next parameters
   // This secret should only be known to this route handler and the CMS
@@ -17,7 +18,7 @@ export async function GET(request) {
 
   // Fetch the headless CMS to check if the provided `slug` exists
   // getPostBySlug would implement the required fetching logic to the headless CMS
-  const post = await getPreviewPostBySlug(req.query.slug)
+  const post = await getPreviewPostBySlug(slug)
 
   // If the slug doesn't exist prevent draft mode from being enabled
   if (!post) {
@@ -29,5 +30,5 @@ export async function GET(request) {
 
   // Redirect to the path from the fetched post
   // We don't redirect to searchParams.slug as that might lead to open redirect vulnerabilities
-  redirect(post.slug)
+  redirect(`/${path}/${post.slug}`)
 }

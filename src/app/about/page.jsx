@@ -1,20 +1,13 @@
 import Image from 'next/image'
 import { PageMeta } from '@/components/Meta'
-import { getAllPosts, getPageBySlug } from '@/lib/cosmic'
+import { getPageBySlug } from '@/lib/cosmic'
 import Socials from '@/components/Socials'
 import { sanitize } from 'isomorphic-dompurify'
 
 async function getData() {
-  const preview = false
-  const allPosts = (await getAllPosts(preview, 'posts')) || []
-  const pageData =
-    (await getPageBySlug('about-page', 'content,metadata', {
-      next: { revalidate: 60 },
-    })) || []
+  const pageData = (await getPageBySlug('about-page', 'content,metadata')) || []
   return {
-    allPosts,
     pageData,
-    preview,
   }
 }
 
