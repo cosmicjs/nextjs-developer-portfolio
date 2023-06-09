@@ -27,12 +27,12 @@ COSMIC_READ_KEY=your_cosmic_read_key
 COSMIC_PREVIEW_SECRET=your_preview_secret
 ```
 
-Install the dependencies with
+Install the dependencies by running one of the following commands:
 
 ```
 pnpm install
 # or
-yarn install
+yarn
 # or
 npm install
 ```
