@@ -40,7 +40,7 @@ npm install
 Then run the development server:
 
 ```
-pnpm run dev
+pnpm dev
 # or
 yarn dev
 # or
