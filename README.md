@@ -1,5 +1,7 @@
 # Developer Portfolio built with Next.js and Cosmic
 
+![Screenshot of the Cosmic Developer Porfolio application template](/public/images/dev-portfolio.png)
+
 To build this app, we’re going to use the following technologies:
 
 - [Next.js](https://nextjs.org/docs) - A React framework for production that makes it easy to spin up a full-stack application.
@@ -11,10 +13,6 @@ To build this app, we’re going to use the following technologies:
 - [Read how the template was built](https://www.cosmicjs.com/blog/creating-a-developer-portfolio-with-nextjs-and-cosmic)
 - [Install the App Template](https://www.cosmicjs.com/marketplace/templates/developer-portfolio)
 - [View the live demo](https://nextjs-developer-portfolio-cms.vercel.app/)
-
-## Screenshots
-
-![Screenshot of the Cosmic Developer Porfolio application template](/public/images/dev-portfolio.png)
 
 ## Getting started
 
