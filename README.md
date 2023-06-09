@@ -11,7 +11,7 @@ To build this app, we’re going to use the following technologies:
 ### Links
 
 - [Read how the template was built](https://www.cosmicjs.com/blog/creating-a-developer-portfolio-with-nextjs-and-cosmic)
-- [Install the App Template](https://www.cosmicjs.com/marketplace/templates/developer-portfolio)
+- [Install the template](https://www.cosmicjs.com/marketplace/templates/developer-portfolio)
 - [View the live demo](https://nextjs-developer-portfolio-cms.vercel.app/)
 
 ## Getting started
