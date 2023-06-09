@@ -13,10 +13,10 @@ const is404 = error => /not found/i.test(error.message)
 export async function getPreviewPostBySlug(slug) {
   try {
     const data = await cosmic.objects
-      .find({
+      .findOne({
         slug: slug,
       })
-      .props('slug')
+      .props('title,slug,metadata')
       .status('any')
     return data.object
   } catch (error) {
@@ -31,7 +31,9 @@ export async function getAllPosts(preview, postType, postCount) {
       .find({
         type: postType,
       })
-      .props('title,slug,metadata.category,metadata.excerpt,metadata.published_date,created_at,status')
+      .props(
+        'title,slug,metadata.category,metadata.excerpt,metadata.published_date,created_at,status'
+      )
       .limit(postCount)
       .sort('-created_at')
       .status(preview ? 'any' : 'published')
@@ -61,7 +63,7 @@ export async function getPostAndMorePosts(slug, preview) {
       .findOne({
         slug: slug,
       })
-      .props('slug,title,metadata,created_at')
+      .props('slug,title,metadata,created_at,status')
       .status(preview ? 'any' : 'published')
 
     const moreObjects = await cosmic.objects
@@ -80,8 +82,7 @@ export async function getPostAndMorePosts(slug, preview) {
       morePosts,
     }
   } catch (error) {
-    if (is404(error)) return
-    throw error
+    if (is404(error)) throw error
   }
 }
 
@@ -103,7 +104,7 @@ export async function getPageBySlug(slug, props) {
   try {
     const data = await cosmic.objects
       .findOne({
-        slug: slug
+        slug: slug,
       })
       .props(props)
       .depth(1)

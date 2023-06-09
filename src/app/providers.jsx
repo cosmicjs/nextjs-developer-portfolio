@@ -1,16 +1,14 @@
-import '@/styles/globals.css'
+'use client'
 import { ThemeProvider } from 'next-themes'
 
-const MyApp = ({ Component, pageProps }) => {
+export default function Providers({ children }) {
   return (
     <ThemeProvider
       defaultTheme="system"
       attribute="class"
       disableTransitionOnChange
     >
-      <Component {...pageProps} />
+      {children}
     </ThemeProvider>
   )
 }
-
-export default MyApp

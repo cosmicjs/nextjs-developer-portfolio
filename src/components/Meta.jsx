@@ -1,8 +1,6 @@
-import Head from 'next/head'
-
 export const Meta = () => {
   return (
-    <Head>
+    <>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -31,13 +29,13 @@ export const Meta = () => {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-    </Head>
+    </>
   )
 }
 
 export const PageMeta = ({ title, description }) => {
   return (
-    <Head>
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
@@ -51,13 +49,13 @@ export const PageMeta = ({ title, description }) => {
         name="twitter:image"
         content="https://imgix.cosmicjs.com/c04f6a90-f00b-11ed-87b8-b7104fcd2121-blog-post-cover-cosmic.png?w=1200&h=627"
       />
-    </Head>
+    </>
   )
 }
 
 export const PostMeta = ({ title, description, slug, page, imageUrl }) => {
   return (
-    <Head>
+    <>
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
@@ -74,6 +72,6 @@ export const PostMeta = ({ title, description, slug, page, imageUrl }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-    </Head>
+    </>
   )
 }

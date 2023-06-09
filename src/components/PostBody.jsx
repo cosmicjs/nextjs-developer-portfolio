@@ -1,6 +1,6 @@
 import markdownStyles from './markdown-styles.module.css'
 import ReactMarkdown from 'react-markdown'
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 const components = {
   a: a => {
@@ -18,11 +18,14 @@ const components = {
         width={400}
         height={300}
         quality={50}
-        layout="responsive"
-        objectFit="contain"
-        objectPosition="center"
-      />
-    )
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto",
+          objectFit: "contain",
+          objectPosition: "center"
+        }} />
+    );
   },
 }
 

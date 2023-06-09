@@ -1,14 +1,15 @@
+'use client'
 import { useEffect, useState } from 'react'
 import { CloseIcon, MenuIcon } from '@/configs/icons'
 import ThemeChanger from './ThemeChanger'
 import Logo from './Logo'
 import { routes } from './MenuItems'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false)
-  const currentPage = useRouter()
+  const currentPage = usePathname()
 
   useEffect(() => {
     const body = document.body
@@ -63,7 +64,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  );
+  )
 }
 
 export default Navbar
