@@ -5,7 +5,6 @@ import ToolboxSection from '@/sections/ToolboxSection'
 import WorksSection from '@/sections/WorksSection'
 import PostsSection from '@/sections/PostsSection'
 import ContactSection from '@/sections/ContactSection'
-import { PageMeta } from '@/components/Meta'
 import { draftMode } from 'next/headers'
 
 async function getData() {
@@ -20,6 +19,49 @@ async function getData() {
   }
 }
 
+export async function generateMetadata() {
+  const pageData = await getPageBySlug('home-page', 'metadata')
+  const socialData = await getPageBySlug('social-config', 'metadata')
+
+  const title = pageData?.metadata?.meta_title
+  const description = pageData?.metadata?.meta_description
+  const image = pageData?.metadata?.meta_image?.imgix_url
+  const url = pageData?.metadata?.meta_url
+  const twitterHanlde = socialData?.metadata?.twitter
+
+  return {
+    title: title,
+    description: description,
+    image: image,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: [
+        {
+          url: image,
+          width: 800,
+          height: 600,
+        },
+        {
+          url: image,
+          width: 1800,
+          height: 1600,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: title,
+      description: description,
+      creator: twitterHanlde,
+      images: [image],
+    },
+  }
+}
+
 const HomePage = async () => {
   const data = await getData()
   const allPosts = data.allPosts
@@ -28,10 +70,6 @@ const HomePage = async () => {
 
   return (
     <>
-      <PageMeta
-        title={pageData?.metadata.meta_title}
-        description={pageData?.metadata.meta_title}
-      />
       <IntroSection
         avatar={pageData?.metadata.avatar?.imgix_url}
         heading={pageData?.metadata.heading}

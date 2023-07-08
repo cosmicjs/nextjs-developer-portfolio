@@ -114,3 +114,18 @@ export async function getPageBySlug(slug, props) {
     throw error
   }
 }
+
+export async function getSiteSettings() {
+  try {
+    const data = await cosmic.objects
+      .findOne({
+        type: 'site-settings',
+        slug: 'site-settings',
+      })
+      .props('metadata')
+    return data.object
+  } catch (error) {
+    if (is404(error)) return
+    throw error
+  }
+}
