@@ -22,15 +22,16 @@ async function getData() {
 }
 
 export async function generateMetadata() {
-  const [pageData, socialData] = await Promise.all([
+  const [pageData, socialData, siteSettings] = await Promise.all([
     getPageBySlug('home-page', 'metadata'),
     getPageBySlug('social-config', 'metadata'),
+    getPageBySlug('site-settings', 'metadata'),
   ])
 
   const title = pageData?.metadata?.meta_title
   const description = pageData?.metadata?.meta_description
   const image = pageData?.metadata?.meta_image?.imgix_url
-  const url = pageData?.metadata?.site_url
+  const url = siteSettings?.metadata?.site_url
   const twitterHanlde = socialData?.metadata?.twitter
 
   return {
