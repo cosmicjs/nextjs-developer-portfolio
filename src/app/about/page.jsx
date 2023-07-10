@@ -11,8 +11,10 @@ async function getData() {
 }
 
 export async function generateMetadata() {
-  const pageData = await getPageBySlug('about-page', 'metadata')
-  const socialData = await getPageBySlug('social-config', 'metadata')
+  const [pageData, socialData] = await Promise.all([
+    getPageBySlug('about-page', 'metadata'),
+    getPageBySlug('social-config', 'metadata'),
+  ])
 
   const title = pageData?.metadata?.meta_title
   const description = pageData?.metadata?.meta_description

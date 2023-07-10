@@ -4,8 +4,10 @@ import { draftMode } from 'next/headers'
 
 async function getData() {
   const { isEnabled } = draftMode()
-  const allPosts = (await getAllPosts(isEnabled, 'posts')) || []
-  const allPostCategories = (await getAllCategories('post-categories')) || []
+  const [allPosts, allPostCategories] = await Promise.all([
+    getAllPosts(isEnabled, 'posts') || [],
+    getAllCategories('post-categories') || [],
+  ])
   return {
     allPosts,
     allPostCategories,
@@ -13,8 +15,10 @@ async function getData() {
 }
 
 export async function generateMetadata() {
-  const socialData = await getPageBySlug('social-config', 'metadata')
-  const siteSettings = await getPageBySlug('site-settings', 'metadata')
+  const [socialData, siteSettings] = await Promise.all([
+    getPageBySlug('social-config', 'metadata'),
+    getPageBySlug('site-settings', 'metadata'),
+  ])
 
   const title = 'Posts | Developer Portfolio'
   const description = 'The blog posts of this developer'

@@ -6,9 +6,11 @@ import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
 export async function generateMetadata({ params }) {
-  const getData = await getPostAndMorePosts(params.slug)
-  const socialData = await getPageBySlug('social-config', 'metadata')
-  const siteSettings = await getPageBySlug('site-settings', 'metadata')
+  const [getData, socialData, siteSettings] = await Promise.all([
+    getPostAndMorePosts(params.slug),
+    getPageBySlug('social-config', 'metadata'),
+    getPageBySlug('site-settings', 'metadata'),
+  ])
 
   const title = getData?.post?.title
   const currentPage = 'works'
