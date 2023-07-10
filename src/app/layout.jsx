@@ -8,8 +8,10 @@ import { getSiteSettings } from '@/lib/cosmic'
 
 const siteSettings = await getSiteSettings()
 const enableRobots = siteSettings?.metadata?.enable_robots
+const siteUrl = siteSettings?.metadata?.site_url
 
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   icons: {
     icon: '/favicon/icon.ico',
     shortcut: '/favicon/shortcut-icon.png',

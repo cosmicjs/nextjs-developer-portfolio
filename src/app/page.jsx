@@ -26,7 +26,7 @@ export async function generateMetadata() {
   const title = pageData?.metadata?.meta_title
   const description = pageData?.metadata?.meta_description
   const image = pageData?.metadata?.meta_image?.imgix_url
-  const url = pageData?.metadata?.meta_url
+  const url = pageData?.metadata?.site_url
   const twitterHanlde = socialData?.metadata?.twitter
 
   return {

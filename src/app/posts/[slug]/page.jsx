@@ -1,9 +1,53 @@
 import PostBody from '@/components/PostBody'
 import PostHeader from '@/components/PostHeader'
-import { getPostAndMorePosts } from '@/lib/cosmic'
-import { PostMeta } from '@/components/Meta'
+import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
+
+export async function generateMetadata({ params }) {
+  const getData = await getPostAndMorePosts(params.slug)
+  const socialData = await getPageBySlug('social-config', 'metadata')
+  const siteSettings = await getPageBySlug('site-settings', 'metadata')
+
+  const title = getData?.post?.title
+  const currentPage = 'posts'
+  const description = getData?.post?.metadata?.excerpt
+  const image = getData?.post?.metadata?.cover_image?.imgix_url
+  const url = `${siteSettings?.metadata.site_url}/${currentPage}/${params.slug}`
+  const twitterHanlde = socialData?.metadata?.twitter
+
+  return {
+    title: title,
+    description: description,
+    image: image,
+    openGraph: {
+      title: title,
+      description: description,
+      url: url,
+      images: [
+        {
+          url: image,
+          width: 800,
+          height: 600,
+        },
+        {
+          url: image,
+          width: 1800,
+          height: 1600,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: title,
+      description: description,
+      creator: twitterHanlde,
+      images: [image],
+    },
+  }
+}
 
 const SinglePost = async ({ params }) => {
   const { isEnabled } = draftMode()
@@ -17,13 +61,6 @@ const SinglePost = async ({ params }) => {
 
   return (
     <>
-      <PostMeta
-        title={post.title}
-        description={post.metadata.excerpt}
-        slug={post.slug}
-        page="posts"
-        imageUrl={post.metadata.cover_image.imgix_url}
-      />
       <article className="border-b border-back-subtle py-8 mb-8">
         <PostHeader post={post} />
         <PostBody content={post.metadata.content} />

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { PageMeta } from '@/components/Meta'
 import { getPageBySlug } from '@/lib/cosmic'
 import Socials from '@/components/Socials'
 import { sanitize } from 'isomorphic-dompurify'
@@ -18,7 +17,7 @@ export async function generateMetadata() {
   const title = pageData?.metadata?.meta_title
   const description = pageData?.metadata?.meta_description
   const image = pageData?.metadata?.meta_image?.imgix_url
-  const url = pageData?.metadata?.meta_url
+  const url = pageData?.metadata?.site_url
   const twitterHanlde = socialData?.metadata?.twitter
 
   return {
