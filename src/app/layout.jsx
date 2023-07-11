@@ -1,10 +1,41 @@
 import '@/styles/globals.css'
 import Providers from './providers'
-import { Meta } from '@/components/Meta'
 import Header from '@/components/Header'
 import AlertPreview from '@/components/AlertPreview'
 import Footer from '@/components/Footer'
 import { draftMode } from 'next/headers'
+import { getSiteSettings } from '@/lib/cosmic'
+
+const siteSettings = await getSiteSettings()
+const enableRobots = siteSettings?.metadata?.enable_robots
+const siteUrl = siteSettings?.metadata?.site_url
+
+export const metadata = {
+  metadataBase: new URL(siteUrl),
+  icons: {
+    icon: '/favicon/icon.ico',
+    shortcut: '/favicon/shortcut-icon.png',
+    apple: '/favicon/apple-touch-icon.png',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: enableRobots,
+    follow: enableRobots,
+    nocache: enableRobots,
+    googleBot: {
+      index: enableRobots,
+      follow: enableRobots,
+      noimageindex: enableRobots,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
 
 export default function RootLayout({ children }) {
   const { isEnabled } = draftMode()
@@ -16,7 +47,6 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
-        <Meta />
       </head>
 
       <body>
