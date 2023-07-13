@@ -14,6 +14,7 @@ export async function generateMetadata({ params }) {
   ])
   const currentPage = 'works'
 
+  const title = getMetadata(getData?.post?.title)
   const description = getMetadata(getData?.post?.metadata?.excerpt)
   const image = getMetadata(
     getData?.post?.metadata?.cover_image?.imgix_url,
