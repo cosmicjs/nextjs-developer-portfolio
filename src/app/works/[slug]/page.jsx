@@ -4,6 +4,7 @@ import { getPostAndMorePosts, getPageBySlug } from '@/lib/cosmic'
 import AlertPreview from '@/components/AlertPreview'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
+import getMetadata from 'helpers/getMetadata'
 
 export async function generateMetadata({ params }) {
   const [getData, socialData, siteSettings] = await Promise.all([
@@ -11,13 +12,17 @@ export async function generateMetadata({ params }) {
     getPageBySlug('social-config', 'metadata'),
     getPageBySlug('site-settings', 'metadata'),
   ])
-
-  const title = getData?.post?.title
   const currentPage = 'works'
-  const description = getData?.post?.metadata?.excerpt
-  const image = getData?.post?.metadata?.cover_image?.imgix_url
-  const url = `${siteSettings?.metadata.site_url}/${currentPage}/${params.slug}`
-  const twitterHanlde = socialData?.metadata?.twitter
+
+  const description = getMetadata(getData?.post?.metadata?.excerpt)
+  const image = getMetadata(
+    getData?.post?.metadata?.cover_image?.imgix_url,
+    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
+  )
+  const url = getMetadata(
+    `${siteSettings?.metadata.site_url}/${currentPage}/${params.slug}`
+  )
+  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
 
   return {
     title: title,
@@ -46,7 +51,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: title,
       description: description,
-      creator: twitterHanlde,
+      creator: twitterHandle,
       images: [image],
     },
   }

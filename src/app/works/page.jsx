@@ -1,6 +1,7 @@
 import { getAllPosts, getAllCategories, getPageBySlug } from '@/lib/cosmic'
 import FilteredPosts from '@/components/FilteredPosts'
 import { draftMode } from 'next/headers'
+import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const { isEnabled } = draftMode()
@@ -22,9 +23,11 @@ export async function generateMetadata() {
 
   const title = 'Works | Developer Portfolio'
   const description = 'The projects of this developer'
-  const image = siteSettings?.metadata?.default_meta_image?.imgix_url
-  const url = `${siteSettings?.metadata.site_url}/works`
-  const twitterHanlde = socialData?.metadata?.twitter
+  const image = getMetadata(
+    siteSettings?.metadata?.default_meta_image?.imgix_url
+  )
+  const url = getMetadata(`${siteSettings?.metadata.site_url}/works`)
+  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
 
   return {
     title: title,
@@ -53,7 +56,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: title,
       description: description,
-      creator: twitterHanlde,
+      creator: twitterHandle,
       images: [image],
     },
   }
