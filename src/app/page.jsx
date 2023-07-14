@@ -6,6 +6,7 @@ import WorksSection from '@/sections/WorksSection'
 import PostsSection from '@/sections/PostsSection'
 import ContactSection from '@/sections/ContactSection'
 import { draftMode } from 'next/headers'
+import getMetadata from 'helpers/getMetadata'
 
 async function getData() {
   const { isEnabled } = draftMode()
@@ -28,11 +29,14 @@ export async function generateMetadata() {
     getPageBySlug('site-settings', 'metadata'),
   ])
 
-  const title = pageData?.metadata?.meta_title
-  const description = pageData?.metadata?.meta_description
-  const image = pageData?.metadata?.meta_image?.imgix_url
-  const url = siteSettings?.metadata?.site_url
-  const twitterHanlde = socialData?.metadata?.twitter
+  const title = getMetadata(pageData?.metadata?.meta_title)
+  const description = getMetadata(pageData?.metadata?.meta_description)
+  const image = getMetadata(
+    pageData?.metadata?.meta_image?.imgix_url,
+    siteSettings?.metadata?.default_meta_image?.imgix_url ?? ''
+  )
+  const url = getMetadata(siteSettings?.metadata?.site_url)
+  const twitterHandle = getMetadata(socialData?.metadata?.twitter)
 
   return {
     title: title,
@@ -61,7 +65,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: title,
       description: description,
-      creator: twitterHanlde,
+      creator: twitterHandle,
       images: [image],
     },
   }

@@ -5,10 +5,11 @@ import AlertPreview from '@/components/AlertPreview'
 import Footer from '@/components/Footer'
 import { draftMode } from 'next/headers'
 import { getSiteSettings } from '@/lib/cosmic'
+import getMetadata from 'helpers/getMetadata'
 
 const siteSettings = await getSiteSettings()
-const enableRobots = siteSettings?.metadata?.enable_robots
-const siteUrl = siteSettings?.metadata?.site_url
+const enableRobots = getMetadata(siteSettings?.metadata?.enable_robots, false)
+const siteUrl = getMetadata(siteSettings?.metadata?.site_url)
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
