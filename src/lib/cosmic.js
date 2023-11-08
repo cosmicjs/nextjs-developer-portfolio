@@ -37,6 +37,7 @@ export async function getAllPosts(preview, postType, postCount) {
       .limit(postCount)
       .sort('-created_at')
       .status(preview ? 'any' : 'published')
+      .depth(1)
     return data.objects
   } catch (error) {
     if (is404(error)) return
